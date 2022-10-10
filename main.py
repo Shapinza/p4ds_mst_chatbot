@@ -46,7 +46,7 @@ def chat(philosopher_name):
             if tg['tag'] == tag:
                 responses = tg['responses']
 
-        print(random.choice(responses))
+        print(philosopher_name + ": " + random.choice(responses))
 
 
 chat(philosopher_name)
