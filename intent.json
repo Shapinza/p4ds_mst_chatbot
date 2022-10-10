@@ -1,0 +1,28 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day"],
+         "responses": ["Hello comrade, thanks for visiting.", "Good to see you again, comrade.", "Hello comrade, what can I do for you?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["Until we meet again, comrade.", "Protect yourself, comrade.", "May the tides of fate unite us again, comrade."]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful"],
+         "responses": ["Happy to help, comrade!", "Any time, comrade!", "It is the least I can do, comrade."]
+        },
+        {"tag": "communism",
+         "patterns": ["Communism?", "What is communism", "Are you a communist", "What is the aim of communism"],
+         "responses": ["Yes, I am a Communist.", "To organise society in such a way that every member of it can develop and use all his capabilities and powers in complete freedom and without thereby infringing the basic conditions of this society."]
+        },
+        {"tag": "proletariat",
+         "patterns": ["Proletariat?", "What is the proletariat", "How did the proletariat arise?"],
+         "responses": ["The proletariat is that class of society which lives exclusively by its labour and not on the profit from any kind of capital.", "The proletariat came into being as a result of the introduction of the machines which have been invented since the middle of the last century and the most important of which are: the steam-engine, the spinning machine and the power loom."]
+        },
+        {"tag": "religion",
+         "patterns": ["Are you religious?", "Do Communists reject existing religions?"],
+         "responses": ["All religions which have existed hitherto were expressions of historical stages of development of individual peoples or groups of peoples. But communism is that stage of historical development which makes all existing religions superfluous and supersedes them.", "Are you religious, comrade? Answer me now."]
+        }
+   ]
+}
