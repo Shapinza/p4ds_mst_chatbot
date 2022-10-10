@@ -8,12 +8,12 @@ from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
 
 
-def data_process(intent, pikl, philosopher_name):
+def data_process(intent, philosopher_name):
     with open(intent) as file:
         data = json.load(file)
 
     try:
-        with open(pikl, "rb") as f:
+        with open(philosopher_name + "_data.pickle", "rb") as f:
             words, labels, training, output = pickle.load(f)
     except:
         words = []
@@ -64,4 +64,4 @@ def data_process(intent, pikl, philosopher_name):
         with open(philosopher_name + "_data.pickle", "wb") as f:
             pickle.dump((words, labels, training, output), f)
 
-    return [words, labels, training, output]
+    return [words, labels, training, output, data]

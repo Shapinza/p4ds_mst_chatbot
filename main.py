@@ -9,11 +9,11 @@ stemmer = LancasterStemmer()
 
 
 # change philosopher here
-philosopher_name = ""
+philosopher_name = "Marx"
 
 
-[words, labels, training, output] = data_process(
-    "intent", "pikl", philosopher_name)
+[words, labels, training, output, data] = data_process(
+    "intent.json", philosopher_name)
 
 
 def bag_of_words(s, words):
@@ -31,7 +31,7 @@ def bag_of_words(s, words):
 
 
 def chat(philosopher_name):
-    model = model.load(philosopher_name + "_model.tflearn")
+    model = model_train(training, output, philosopher_name)
     print("Start talking with the bot (type quit to stop)!")
     while True:
         inp = input("You: ")
@@ -49,4 +49,4 @@ def chat(philosopher_name):
         print(random.choice(responses))
 
 
-chat()
+chat(philosopher_name)
