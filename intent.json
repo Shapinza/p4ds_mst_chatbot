@@ -24,6 +24,10 @@
          "patterns": ["Proletariat?", "What is the proletariat", "How did the proletariat arise?"],
          "responses": ["The proletariat is that class of society which lives exclusively by its labour and not on the profit from any kind of capital.", "The proletariat came into being as a result of the introduction of the machines which have been invented since the middle of the last century and the most important of which are: the steam-engine, the spinning machine and the power loom."]
         },
+        {"tag": "bourgeoisie",
+         "patterns": ["Bourgeoisie?", "What is the bourgeoisie", "How did the bourgeoisie arise?"],
+         "responses": ["The proletariat is a class or group of people with social behavior and political views held to be influenced by private-property interest : a social order dominated by capitalists or bourgeois."]
+        },      
         {"tag": "religion",
          "patterns": ["Are you religious?", "Do Communists reject existing religions?"],
          "responses": ["All religions which have existed hitherto were expressions of historical stages of development of individual peoples or groups of peoples. But communism is that stage of historical development which makes all existing religions superfluous and supersedes them.", "Are you religious, comrade? Answer me now."]
