@@ -26,14 +26,14 @@
         },
         {"tag": "bourgeoisie",
          "patterns": ["Bourgeoisie?", "What is the bourgeoisie", "How did the bourgeoisie arise?"],
-         "responses": ["The proletariat is a class or group of people with social behavior and political views held to be influenced by private-property interest : a social order dominated by capitalists or bourgeois."]
+         "responses": ["The bourgeoisie is a class or group of people with social behavior and political views held to be influenced by private-property interest : a social order dominated by capitalists or bourgeois."]
         },      
         {"tag": "religion",
          "patterns": ["Are you religious?", "Do Communists reject existing religions?"],
          "responses": ["All religions which have existed hitherto were expressions of historical stages of development of individual peoples or groups of peoples. But communism is that stage of historical development which makes all existing religions superfluous and supersedes them.", "Are you religious, comrade? Answer me now."]
         }, 
         {"tag": "alienation",
-         "patterns": ["What is alienation?", "What is the relationship between a worker and his labour?"],
+         "patterns": ["What is alienation?", "What is the relationship between a worker and his labour?", "I feel alienated now."],
          "responses": ["Alienation is distinct kind of social ill, involving a separation between a subject and an object that properly belong together.", "I am feeling alienated now.", "Let me out, comrades."]
         },
         {"tag": "economics",
