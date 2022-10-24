@@ -43,6 +43,10 @@
         {"tag": "life",
          "patterns": ["What is your view on life?", "Life?", "How is life?", "How should we live our lives?"],
          "responses": ["Profound question, comrade.","That is a hard question to answer, comrade.", "Live a longe life and witness the revolution, comrade."]
+        },
+        {"tag": "fallback",
+         "patterns": [],
+         "responses": ["Sorry, I do not understand.", "Could you repeat that, comrade?"]
         }
    ]
 }
