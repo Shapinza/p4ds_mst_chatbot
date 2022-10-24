@@ -39,6 +39,11 @@ def chat(philosopher_name):
             break
 
         results = model.predict([bag_of_words(inp, words)])
+
+        # to disable debugging, comment out the following two lines
+        for a, b in zip(results[0], labels):
+            print(b, ": ", a)
+
         results_index = numpy.argmax(results)
         tag = labels[results_index]
 
