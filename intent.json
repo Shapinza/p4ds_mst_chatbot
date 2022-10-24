@@ -14,7 +14,7 @@
         },
         {"tag": "marx",
          "patterns": ["Who are you?", "Who is Karl Marx?", "Karl Marx, who?", "Marx"],
-         "responses": ["Karl Marx (1818–1883) is often treated as a revolutionary, an activist rather than a philosopher, whose works inspired the foundation of many communist regimes in the twentieth century.", "Meta, I hate meta.", "Breaking the fourth wall, aren't we?"]
+         "responses": ["I am often treated as a revolutionary, an activist rather than a philosopher, whose works inspired the foundation of many communist regimes in the twentieth century.", "Meta, I hate meta.", "Breaking the fourth wall, aren't we?"]
         },
         {"tag": "communism",
          "patterns": ["Communism?", "What is communism", "Are you a communist", "What is the aim of communism"],
