@@ -40,18 +40,33 @@ def chat(philosopher_name):
 
         results = model.predict([bag_of_words(inp, words)])
 
-        # to disable debugging, comment out the following two lines
+        # to disable debugging, comment out the following few lines
+        temp = []
         for a, b in zip(results[0], labels):
-            print(b, ": ", a)
+            temp.append(b + ": " + str(a))
+        print(temp)
 
-        results_index = numpy.argmax(results)
-        tag = labels[results_index]
+        # fallback logic
+        if max(results[0]) < 0.75:
+            # print no winner, uncomment if not needed
+            print("No winner category, use fallback logic")
+            print(philosopher_name + ": " +
+                  "Sorry I don't understand what you are saying. Could you please try again?")
 
-        for tg in data["intents"]:
-            if tg['tag'] == tag:
-                responses = tg['responses']
+        else:
+            results_index = numpy.argmax(results)
+            tag = labels[results_index]
 
-        print(philosopher_name + ": " + random.choice(responses))
+            # print winner category, uncomment if not needed
+            print("Winner tag: " + tag, "| Score: " + str(max(results[0])))
+
+            for tg in data["intents"]:
+                if tg['tag'] == tag:
+                    responses = tg['responses']
+
+            print(philosopher_name + ": " + random.choice(responses))
+
+        print("")
 
 
 chat(philosopher_name)
