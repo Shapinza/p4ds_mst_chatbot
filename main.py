@@ -1,6 +1,9 @@
 from data_process import data_process
 from model_train import model_train
 from pyexpat import model
+from bot import *
+from config import load_config
+import telebot
 import random
 import numpy
 import nltk
@@ -10,6 +13,10 @@ stemmer = LancasterStemmer()
 
 # change philosopher here
 philosopher_name = "Marx"
+config = load_config("config.yaml")
+bot_token = config["telegram"]["token"]
+chat_id = config["telegram"]["chat_id"]
+bot = telebot.TeleBot("5730786911:AAGk0UB0zUD3DRFyKL_ZHyI9mVbUkFqzc1A")
 
 
 [words, labels, training, output, data] = data_process(
@@ -53,6 +60,10 @@ def chat(philosopher_name):
             print(philosopher_name + ": " +
                   "Sorry I don't understand what you are saying. Could you please try again?")
 
+            # Telegram bot
+            msg = "Sorry I don't understand what you are saying. Could you please try again?"
+            send_message(msg, bot_token, chat_id)
+
         else:
             results_index = numpy.argmax(results)
             tag = labels[results_index]
@@ -64,7 +75,11 @@ def chat(philosopher_name):
                 if tg['tag'] == tag:
                     responses = tg['responses']
 
-            print(philosopher_name + ": " + random.choice(responses))
+            msg = random.choice(responses)
+            print(philosopher_name + ": " + msg)
+
+            # Telegram bot
+            send_message(msg, bot_token, chat_id)
 
         print("")
 
