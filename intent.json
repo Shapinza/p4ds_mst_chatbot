@@ -40,11 +40,14 @@
          "patterns": ["What is your view on economics?", "Economy?", "How does the economy work?"],
          "responses": ["In setting up conditions of production the capitalist purchases the worker’s labour power—his or her ability to labour—for the day.", "Money makes me nauseated."]
         },
+         {"tag": "Engels",
+         "patterns": ["Engels?", "Engels", "Who is Engels?"],
+         "responses": ["Oh, my pal.", "Oh, the good old days.", "Did something happen to Engels? Answer me now."]
+        },
         {"tag": "life",
          "patterns": ["What is your view on life?", "Life?", "How is life?", "How should we live our lives?"],
          "responses": ["Profound question, comrade.","That is a hard question to answer, comrade.", "Live a longer life and witness the revolution, comrade."]
         },
-
         {"tag": "advice",
         "patterns": ["Advice?", "Can I have advice?", "I need help", "Can you help me?"],
         "responses": ["You should always do what is meaningful to you.","Trust me, you should do what brings you closer to nature and to each other.", "You are the only one who knows how to reflect your true purpose."]
