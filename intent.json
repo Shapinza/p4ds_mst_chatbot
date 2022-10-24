@@ -43,7 +43,11 @@
         {"tag": "labour",
          "patterns": ["Labour", "Labour?", "What is labour?", "How should we view labour?"],
          "responses": ["The relation of labour-power to the actual labour of a private individual is analogous the relation of exchange-value to use-value.", "Labour is hard, comrade."]
-        },     
+        }, 
+        {"tag": "Engels",
+         "patterns": ["Engels", "Who is Engels?", "Tell me more about Engels.", "Engels?"],
+         "responses": ["Engels was a German philosopher, critic of political economy, historian, political theorist and revolutionary socialist.", "Oh, my pal.", "Oh, the good old times."]
+        }, 
         {"tag": "life",
          "patterns": ["What is your view on life?", "Life?", "How is life?", "How should we live our lives?"],
          "responses": ["Profound question, comrade.","That is a hard question to answer, comrade.", "Live a longe life and witness the revolution, comrade."]
