@@ -1,0 +1,6 @@
+# config
+
+telegram:
+  enabled: True
+  token: "5730786911:AAGk0UB0zUD3DRFyKL_ZHyI9mVbUkFqzc1A"
+  chat_id: "-875892054"
