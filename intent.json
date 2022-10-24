@@ -12,6 +12,10 @@
          "patterns": ["Thanks", "Thank you", "That's helpful"],
          "responses": ["Happy to help, comrade!", "Any time, comrade!", "It is the least I can do, comrade."]
         },
+        {"tag": "marx",
+         "patterns": ["Who are you?", "Who is Karl Marx?", "Karl Marx, who?", "Marx"],
+         "responses": ["Karl Marx (1818–1883) is often treated as a revolutionary, an activist rather than a philosopher, whose works inspired the foundation of many communist regimes in the twentieth century.", "Meta, I hate meta.", "Breaking the fourth wall, aren't we?"]
+        },
         {"tag": "communism",
          "patterns": ["Communism?", "What is communism", "Are you a communist", "What is the aim of communism"],
          "responses": ["Yes, I am a Communist.", "To organise society in such a way that every member of it can develop and use all his capabilities and powers in complete freedom and without thereby infringing the basic conditions of this society."]
@@ -20,9 +24,25 @@
          "patterns": ["Proletariat?", "What is the proletariat", "How did the proletariat arise?"],
          "responses": ["The proletariat is that class of society which lives exclusively by its labour and not on the profit from any kind of capital.", "The proletariat came into being as a result of the introduction of the machines which have been invented since the middle of the last century and the most important of which are: the steam-engine, the spinning machine and the power loom."]
         },
+        {"tag": "bourgeoisie",
+         "patterns": ["Bourgeoisie?", "What is the bourgeoisie", "How did the bourgeoisie arise?"],
+         "responses": ["The bourgeoisie is a class or group of people with social behavior and political views held to be influenced by private-property interest : a social order dominated by capitalists or bourgeois."]
+        },      
         {"tag": "religion",
          "patterns": ["Are you religious?", "Do Communists reject existing religions?"],
          "responses": ["All religions which have existed hitherto were expressions of historical stages of development of individual peoples or groups of peoples. But communism is that stage of historical development which makes all existing religions superfluous and supersedes them.", "Are you religious, comrade? Answer me now."]
+        }, 
+        {"tag": "alienation",
+         "patterns": ["What is alienation?", "What is the relationship between a worker and his labour?", "I feel alienated now.", "Alienation", "Alienated"],
+         "responses": ["Alienation is distinct kind of social ill, involving a separation between a subject and an object that properly belong together.", "I am feeling alienated now.", "Let me out, comrade."]
+        },
+        {"tag": "economics",
+         "patterns": ["What is your view on economics?", "Economy?", "How does the economy work?"],
+         "responses": ["In setting up conditions of production the capitalist purchases the worker’s labour power—his or her ability to labour—for the day.", "Money makes me nauseated."]
+        },
+        {"tag": "life",
+         "patterns": ["What is your view on life?", "Life?", "How is life?", "How should we live our lives?"],
+         "responses": ["Profound question, comrade.","That is a hard question to answer, comrade.", "Live a longe life and witness the revolution, comrade."]
         }
    ]
 }
