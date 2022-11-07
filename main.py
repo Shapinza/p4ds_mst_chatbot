@@ -54,7 +54,7 @@ def chat(philosopher_name):
         print(temp)
 
         # fallback logic
-        if max(results[0]) < 0.75:
+        if max(results[0]) < 0.7:
             # print no winner, uncomment if not needed
             print("No winner category, use fallback logic")
             print(philosopher_name + ": " +
