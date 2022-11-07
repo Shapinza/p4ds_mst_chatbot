@@ -44,9 +44,14 @@ model = model_train(training, output, philosopher_name)
 def echo_all(inp):
     results = model.predict([bag_of_words(inp.text, words)])
 
+    fallbacks = ["I don’t understand your Gen Z lingo. After all, I am a little over 200 years old. Can you say it another way?",
+                 "That’s up to you to say, because I can’t give you a reply to that. Tell me something else.",
+                 "Some things do not deserve to be graced with a reply. Kidding, I just don’t understand what you are saying. Try again.",
+                 "I don’t understand the manner you are speaking, comrade. Don’t submit to incoherence. Tell me something else."]
+
     # fallback logic
     if max(results[0]) < 0.75:
-        msg = "Sorry I don't understand what you are saying. Could you please try again?"
+        msg = random.choice(fallbacks)
 
     else:
         results_index = numpy.argmax(results)
