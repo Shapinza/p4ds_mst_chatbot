@@ -62,7 +62,7 @@ def chat(philosopher_name):
 
             # Telegram bot
             msg = "Sorry I don't understand what you are saying. Could you please try again?"
-            send_message(msg, bot_token, chat_id)
+            # send_message(msg, bot_token, chat_id)
 
         else:
             results_index = numpy.argmax(results)
@@ -79,7 +79,7 @@ def chat(philosopher_name):
             print(philosopher_name + ": " + msg)
 
             # Telegram bot
-            send_message(msg, bot_token, chat_id)
+            # send_message(msg, bot_token, chat_id)
 
         print("")
 
