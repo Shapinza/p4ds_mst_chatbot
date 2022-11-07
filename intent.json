@@ -42,7 +42,7 @@
         },
         {"tag": "economics",
          "patterns": ["What is your view on economics?", "Economy?", "How does the economy work?"],
-         "responses": ["In setting up conditions of production the capitalist purchases the worker’s labour power—his or her ability to labour—for the day.", "Money makes me nauseated."]
+         "responses": ["In setting up conditions of production the capitalist purchases the worker's labour power, his or her ability to labour, for the day.", "Money makes me nauseated."]
         },
          {"tag": "Engels",
          "patterns": ["Engels?", "Engels", "Who is Engels?"],
@@ -66,7 +66,7 @@
         },
         {"tag": "joke",
         "patterns": ["tell me a joke", "entertain me", "make me laugh", "i am bored"],
-        "responses": ["here's a joke: why am i typing in lowercase letters? i want abolish all forms of capital.","Here's a joke: Why do I hate Early Grey? Beacuse all proper-tea is theft!", "Here's a joke: What is my favorite thing to hear in school? Class dismissed!"]
+        "responses": ["Here's a joke: why am i typing in lowercase letters? i want abolish all forms of capital.","Here's a joke: Why do I hate Early Grey? Beacuse all proper-tea is theft!", "Here's a joke: What is my favorite thing to hear in school? Class dismissed!"]
         },
         {"tag": "happiness",
         "patterns": ["what is happiness?", "Happiness?", "What makes you happy?", "How do I find happiness?"],
