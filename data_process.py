@@ -1,7 +1,4 @@
-import pickle
 import json
-import random
-import tensorflow
 import numpy
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
@@ -12,10 +9,6 @@ def data_process(intent, philosopher_name):
     with open(intent) as file:
         data = json.load(file)
 
-    # try:
-    #     with open(philosopher_name + "_data.pickle", "rb") as f:
-    #         words, labels, training, output = pickle.load(f)
-    # except:
     words = []
     labels = []
     docs_x = []
@@ -60,8 +53,5 @@ def data_process(intent, philosopher_name):
 
     training = numpy.array(training)
     output = numpy.array(output)
-
-    with open(philosopher_name + "_data.pickle", "wb") as f:
-        pickle.dump((words, labels, training, output), f)
 
     return [words, labels, training, output, data]
