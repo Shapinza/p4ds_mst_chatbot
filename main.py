@@ -1,12 +1,6 @@
 from fastapi import FastAPI
-from tensorflow.keras.models import load_model
-from tensorflow.keras.utils import get_file
-from tensorflow.keras.utils import load_img
-from tensorflow.keras.utils import img_to_array
-from tensorflow import expand_dims
-from tensorflow.nn import softmax
+from fastapi.middleware.cors import CORSMiddleware
 import numpy
-from json import dumps
 from uvicorn import run
 import os
 from data_process import data_process
@@ -38,6 +32,24 @@ def bag_of_words(s, words):
                 bag[i] = 1
 
     return numpy.array(bag)
+
+
+origins = ["*"]
+methods = ["*"]
+headers = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=methods,
+    allow_headers=headers
+)
+
+
+@app.get("/")
+async def root():
+    return {"message": "Welcome to the Food Vision API!"}
 
 
 @app.post("/net/chat/prediction/")
