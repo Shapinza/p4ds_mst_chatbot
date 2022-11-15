@@ -1,26 +1,29 @@
+from fastapi import FastAPI
+from tensorflow.keras.models import load_model
+from tensorflow.keras.utils import get_file
+from tensorflow.keras.utils import load_img
+from tensorflow.keras.utils import img_to_array
+from tensorflow import expand_dims
+from tensorflow.nn import softmax
+import numpy
+from json import dumps
+from uvicorn import run
+import os
 from data_process import data_process
 from model_train import model_train
-from pyexpat import model
-from bot import *
-from config import load_config
-import telebot
-import random
-import numpy
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+import random
 stemmer = LancasterStemmer()
 
 
-# change philosopher here
-philosopher_name = "Marx"
-config = load_config("config.yaml")
-bot_token = config["telegram"]["token"]
-chat_id = config["telegram"]["chat_id"]
-bot = telebot.TeleBot("5730786911:AAGk0UB0zUD3DRFyKL_ZHyI9mVbUkFqzc1A")
+app = FastAPI()
 
 
 [words, labels, training, output, data] = data_process(
-    "intent.json", philosopher_name)
+    "intent.json")
+
+model = model_train(training, output, "Marx")
 
 
 def bag_of_words(s, words):
@@ -37,51 +40,36 @@ def bag_of_words(s, words):
     return numpy.array(bag)
 
 
-def chat(philosopher_name):
-    model = model_train(training, output, philosopher_name)
-    print("Start talking with the bot (type quit to stop)!")
-    while True:
-        inp = input("You: ")
-        if inp.lower() == "quit":
-            break
+@app.post("/net/chat/prediction/")
+async def get_response_prediction(sentence):
+    if not sentence:
+        return {"message": "No sentence provided"}
 
-        results = model.predict([bag_of_words(inp, words)])
+    results = model.predict([bag_of_words(sentence.text, words)])
 
-        # to disable debugging, comment out the following few lines
-        temp = []
-        for a, b in zip(results[0], labels):
-            temp.append(b + ": " + str(a))
-        print(temp)
+    fallbacks = ["I don’t understand your Gen Z lingo. After all, I am a little over 200 years old. Can you say it another way?",
+                 "That’s up to you to say, because I can’t give you a reply to that. Tell me something else.",
+                 "Some things do not deserve to be graced with a reply. Kidding, I just don’t understand what you are saying. Try again.",
+                 "I don’t understand the manner you are speaking, comrade. Don’t submit to incoherence. Tell me something else."]
 
-        # fallback logic
-        if max(results[0]) < 0.7:
-            # print no winner, uncomment if not needed
-            print("No winner category, use fallback logic")
-            print(philosopher_name + ": " +
-                  "Sorry I don't understand what you are saying. Could you please try again?")
+    # fallback logic
+    if max(results[0]) < 0.75:
+        msg = random.choice(fallbacks)
 
-            # Telegram bot
-            msg = "Sorry I don't understand what you are saying. Could you please try again?"
-            # send_message(msg, bot_token, chat_id)
+    else:
+        results_index = numpy.argmax(results)
+        tag = labels[results_index]
 
-        else:
-            results_index = numpy.argmax(results)
-            tag = labels[results_index]
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                responses = tg['responses']
 
-            # print winner category, uncomment if not needed
-            print("Winner tag: " + tag, "| Score: " + str(max(results[0])))
+        msg = random.choice(responses)
 
-            for tg in data["intents"]:
-                if tg['tag'] == tag:
-                    responses = tg['responses']
+    return {
+        "response": msg,
+    }
 
-            msg = random.choice(responses)
-            print(philosopher_name + ": " + msg)
-
-            # Telegram bot
-            # send_message(msg, bot_token, chat_id)
-
-        print("")
-
-
-chat(philosopher_name)
+if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    run(app, host="0.0.0.0", port=port)
