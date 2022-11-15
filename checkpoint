@@ -1,2 +1,2 @@
-model_checkpoint_path: "C:\\Users\\zhzch\\VScode_projects\\p4ds_mst_chatbot\\Marx_model.tflearn"
-all_model_checkpoint_paths: "C:\\Users\\zhzch\\VScode_projects\\p4ds_mst_chatbot\\Marx_model.tflearn"
+model_checkpoint_path: "C:\\Users\\zhzch\\VScode_projects\\p4ds_mst_chatbot\\tf-models"
+all_model_checkpoint_paths: "C:\\Users\\zhzch\\VScode_projects\\p4ds_mst_chatbot\\tf-models"

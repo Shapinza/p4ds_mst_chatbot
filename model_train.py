@@ -1,6 +1,7 @@
 import tflearn
 import tensorflow
 from data_process import data_process
+import time
 
 
 # # change philosopher name here
@@ -35,6 +36,7 @@ def model_train(training, output, philosopher_name):
     model = tflearn.DNN(net)
     model.fit(training, output, n_epoch=1000,
               batch_size=8, show_metric=True)
-    model.save(philosopher_name + "_model.tflearn")
+
+    model.save("tf-models")
 
     return model
