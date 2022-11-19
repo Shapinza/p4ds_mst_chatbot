@@ -20,7 +20,7 @@ bot = telebot.TeleBot("5730786911:AAGk0UB0zUD3DRFyKL_ZHyI9mVbUkFqzc1A")
 
 
 [words, labels, training, output, data] = data_process(
-    "intent.json", philosopher_name)
+    "intent.json")
 
 
 def bag_of_words(s, words):

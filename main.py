@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 import numpy
 from uvicorn import run
@@ -7,6 +7,11 @@ from data_process import data_process
 from model_train import model_train
 import nltk
 from nltk.stem.lancaster import LancasterStemmer
+import random
+from pyexpat import model
+from bot import *
+from config import load_config
+import telebot
 import random
 stemmer = LancasterStemmer()
 
@@ -47,17 +52,51 @@ app.add_middleware(
 )
 
 
+config = load_config("config.yaml")
+bot_token = config["telegram"]["token"]
+chat_id = config["telegram"]["chat_id"]
+bot = telebot.TeleBot("5730786911:AAGk0UB0zUD3DRFyKL_ZHyI9mVbUkFqzc1A")
+
+
+# @bot.message_handler()
+# def echo_all(inp):
+#     results = model.predict([bag_of_words(inp.text, words)])
+
+#     fallbacks = ["I don’t understand your Gen Z lingo. After all, I am a little over 200 years old. Can you say it another way?",
+#                  "That’s up to you to say, because I can’t give you a reply to that. Tell me something else.",
+#                  "Some things do not deserve to be graced with a reply. Kidding, I just don’t understand what you are saying. Try again.",
+#                  "I don’t understand the manner you are speaking, comrade. Don’t submit to incoherence. Tell me something else."]
+
+#     # fallback logic
+#     if max(results[0]) < 0.75:
+#         msg = random.choice(fallbacks)
+
+#     else:
+#         results_index = numpy.argmax(results)
+#         tag = labels[results_index]
+
+#         for tg in data["intents"]:
+#             if tg['tag'] == tag:
+#                 responses = tg['responses']
+
+#         msg = random.choice(responses)
+
+#     bot.reply_to(inp, msg)
+
+
+# bot.infinity_polling()
+
+
 @app.get("/")
 async def root():
     return {"message": "Welcome to the Food Vision API!"}
 
 
-@app.post("/net/chat/prediction/")
-async def get_response_prediction(sentence):
-    if not sentence:
-        return {"message": "No sentence provided"}
-
-    results = model.predict([bag_of_words(sentence.text, words)])
+@app.post("/")
+async def echo_all(request: Request):
+    response = await request.json()
+    response = response["message"]
+    results = model.predict([bag_of_words(response["text"], words)])
 
     fallbacks = ["I don’t understand your Gen Z lingo. After all, I am a little over 200 years old. Can you say it another way?",
                  "That’s up to you to say, because I can’t give you a reply to that. Tell me something else.",
@@ -78,9 +117,8 @@ async def get_response_prediction(sentence):
 
         msg = random.choice(responses)
 
-    return {
-        "response": msg,
-    }
+    bot.send_message(response["chat"]["id"], msg)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
